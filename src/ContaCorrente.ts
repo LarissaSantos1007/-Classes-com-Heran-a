@@ -16,19 +16,12 @@ class ContaCorrente extends Conta {
      public setTaxaManutencao(_taxaManutencao: number): void {
         this.taxaManutencao = _taxaManutencao;
     }
-    public cobrarTaxa(): void {
-        console.log(`Você não tem saldo suficiente`);
-      
-    }
-    public depositar(valor: number): void {
-        console.log(`Depósito de R$${valor}  não foi realizado com sucesso!`);
-    } 
-      public sacar(valor: number): void { 
-         console.log(`Saldo insuficiente`);
-   }
-      public consultarSaldo(): void {
-        console.log(`Você não possui saldo na conta`);
-    } 
 
+    public cobrarTaxa(): void {
+        let saldoTaxa: number = this.getSaldo() - (this.getSaldo() * this.getTaxaManutencao());
+        this.setSaldo(saldoTaxa); 
+      
+    }   
+  
 }
 export default ContaCorrente;

@@ -1,18 +1,22 @@
-import ContaCorrente from "./ContaCorrente.js";
-import ContaPoupanca from "./ContaPoupanca.js";
 
-console.log(`---Cenário1---`);
+import Corrente from "./ContaCorrente.js";
+import Poupanca from "./ContaPoupanca.js";
 
-let conta1 = new ContaCorrente("Felisberto Felis", 1000, 0.08);
-conta1.depositar(200);
-conta1.cobrarTaxa();
-conta1.sacar(2000);
-console.log(`Saldo do cliente ${conta1.getTitular()} é de R$${conta1.getSaldo().toFixed(2)}`);
 
-console.log(`---Cenário2---`);
+console.log(" Conta Corrente!");
 
-let conta2 = new ContaPoupanca("Joselito Rodrigues", 200, 0.06);
-conta2.depositar(500);
-conta2.cobrarRendimento();
-conta2.sacar(100);
-console.log(`O saldo do cliente ${conta2.getTitular()} é de R$${conta2.getSaldo().toFixed(2)}`);
+let corrente: Corrente = new Corrente("Felisberto Felis", 1000, 0.08);
+
+corrente.depositar(200);
+corrente.cobrarTaxa();
+corrente.sacar(2000);
+console.log(`O saldo do cliente ${corrente.getTitular()} é de ${corrente.recuperarSaldo().toFixed(2)} `)
+
+console.log(" Conta Poupança! ");
+
+let poupanca = new Poupanca("Joselito Rodrigues", 200, 0.06);
+
+poupanca.depositar(75.12);
+poupanca.renderJuros();
+poupanca.sacar(100);
+console.log(`O saldo ${poupanca.getTitular()} é de R$ ${poupanca.recuperarSaldo().toFixed(2)}`);
